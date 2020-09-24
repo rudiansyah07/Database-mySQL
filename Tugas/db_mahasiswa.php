@@ -15,20 +15,28 @@ $result =mysqli_query ($conn, "SELECT*FROM mahasiswa");
 	<a href="add-mahasiswa.php">Add_Data</a>
 	<TABLE border="1" cellpandding="7" cellspacing="0">
 		<tr>
-			<td>ID</td>
-			<td>Nama</td>
-			<TD>Jenis_kelamin</TD>
-			<td>Jurusan</td>
-			<td>Alamat</td>
-			<td>Nomor_telpon</td>
-			<td>Email</td>
+			<TH>ID</TH>
+			<TH>Nim</TH>
+			<TH>Nama</TH>
+			<TH>Jenis_kelamin</TH>
+			<TH>Jurusan_Id</TH>
+			<TH>Alamat</TH>
+			<TH>Nomor_telpon</TH>
+			<TH>Email</TH>
+			<TH>Aksi</TH>
 		</tr>
 		<?php foreach ($result as $row): ?>
 		<tr>
 			<td><?php echo $row['id'];?></td>
+			<td><?php echo $row['nim'];?></td>
 			<td><?php echo $row['nama'];?></td>
-			<td><?php echo $row['jenis_kelamin'];?></td>
-			<td><?php echo $row['jurusan'];?></td>
+			<td><?php if ($row['jenis_kelamin'] == "L") {
+						echo "Laki-Laki";
+					} else {
+						echo "Perempuan";
+					}?>	
+			</td>
+			<td><?php echo $row['jurusan_id'];?></td>
 			<td><?php echo $row['alamat'];?></td>
 			<td><?php echo $row['nomor_telpon'];?></td>
 			<td><?php echo $row['email'];?></td>
