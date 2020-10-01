@@ -14,11 +14,11 @@ $result = mysqli_query($conn, "SELECT * FROM jurusan")
 	<form action="" method="POST">
 
 		<label for="nim">NIM</label>
-		<input type="text" id="nim" name="nim">
+		<input type="text" id="nim" name="nim" required>
 		<br><br>
 
 		<label for="nama">Nama</label>
-		<input type="text" id="nama" name="nama">
+		<input type="text" id="nama" name="nama" required>
 		<br><br>
 
 		<label for="jk">Jenis kelamin</label>
@@ -39,11 +39,11 @@ $result = mysqli_query($conn, "SELECT * FROM jurusan")
 		<br><br>
 
 		<label for="telp">Nomor_Telpon</label>
-		<input type="text" id="telp" name="telp">
+		<input type="text" id="telp" name="telp" required>
 		<br><br>
 
 		<label for="email">E-mail</label>
-		<input type="email" id="email" name="email">
+		<input type="email" id="email" name="email" required>
 		<br><br>
 		<button type="submit" name="submit">Simpan</button>
 	</form>
@@ -60,14 +60,21 @@ if (isset($_POST['submit'])) {
 	$telp = $_POST['telp'];
 	$email = $_POST['email'];
 
-	$sql = "INSERT into mahasiswa VALUES ('', '$nim', '$nama', '$jenis_kelamin', '$jurusan', '$alamat', '$telp', '$email', '', '')";
+$sql = "INSERT into mahasiswa VALUES ('','$nim', '$nama', '$jenis_kelamin', '$jurusan', '$alamat', '$telp', '$email', '', '')";
+
 	$query = mysqli_query($conn, $sql);
 
 	if ($query) {
-		echo "berhasil";
+		echo "Data Berhasil Disimpan!";
+		header('Location: mahasiswa.php');
 	} else {
-		echo "gagal";
+		echo "Data Gagal Disimpan!";
 	}
-  }	
+
+}
 
  ?>
+
+
+
+
