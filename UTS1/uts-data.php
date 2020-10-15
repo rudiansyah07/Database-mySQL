@@ -1,5 +1,6 @@
 <?php 
-include "config/koneksi.php";
+$conn = mysqli_connect("localhost", "root", "", "uts1-05-221.mik.b.005");
+$result =mysqli_query ($conn, "SELECT*FROM data"); 
  ?>
 
 <!DOCTYPE html>
@@ -10,8 +11,9 @@ include "config/koneksi.php";
 	<title>Document</title>
 </head>
 <body>
-	<h3>Data Mahasiswa</h3>
-	<a href="add-mahasiswa.php">Add_Data</a>
+
+	<a href="add-datauts.php">Tambah_Data</a>
+	<br><br>
 	<TABLE border="1" cellpandding="7" cellspacing="0">
 		<tr>
 			<TH>Id</TH>
@@ -32,9 +34,9 @@ include "config/koneksi.php";
 			<td><?php echo $row['jurusan'];?></td>
 			<td><?php echo $row['jenis_kelamin'];?></td>
 			<td><?php echo $row['alamat'];?></td>
-			<td><?php echo $row['no_trlpon'];?></td>
+			<td><?php echo $row['no_telpon'];?></td>
 			<td><?php echo $row['e_mail'];?></td>
-			<td><a href="edit.php?id=<?= $row['id'] ?>"><button>Edit</button></a> | <a href="hapus.php?id=<?= $row['id'] ?>"><button>Hapus</button></a></td>
+			<td><a href="edit.php?id=<?= $row['id'] ?>"><button>Edit</button></a> | <a href="Hapus.php?id=<?= $row['id'] ?>"><button>Hapus</button></a></td>
 			
 		</tr>
 		<?php endforeach ?>
