@@ -8,38 +8,56 @@ $result =mysqli_query ($conn, "SELECT*FROM data");
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Document</title>
+	<title>Form Pendaftaran</title>
+	<link rel="stylesheet" href="css/bootstrap.min.css">
 </head>
 <body>
-
-	<a href="add-datauts.php">Tambah_Data</a>
-	<br><br>
-	<TABLE border="1" cellpandding="7" cellspacing="0">
-		<tr>
-			<TH>Id</TH>
-			<TH>No Registrasi</TH>
-			<TH>Nama Lengkap</TH>
-			<TH>Jurusan</TH>
-			<TH>Jenis Kelamin</TH>
-			<TH>Alamat</TH>
-			<TH>No Telepon</TH>
-			<TH>E-Mail</TH>
-			<th>Aksi</th>
-		</tr>
-		<?php foreach ($result as $row): ?>
-		<tr>
-			<td><?php echo $row['id'];?></td>
-			<td><?php echo $row['no_registrasi'];?></td>
-			<td><?php echo $row['nama_lengkap'];?></td>
-			<td><?php echo $row['jurusan'];?></td>
-			<td><?php echo $row['jenis_kelamin'];?></td>
-			<td><?php echo $row['alamat'];?></td>
-			<td><?php echo $row['no_telpon'];?></td>
-			<td><?php echo $row['e_mail'];?></td>
-			<td><a href="edit.php?id=<?= $row['id'] ?>"><button>Edit</button></a> | <a href="Hapus.php?id=<?= $row['id'] ?>"><button>Hapus</button></a></td>
-			
-		</tr>
-		<?php endforeach ?>
-	</TABLE>
+	<div class= "container">
+			<div class= "row">
+				<div class= "col-12">
+							<div class="row mt-2">
+								<div class="col-6"><h3>Data Pendaftaran</h3></div>
+								<div class="col-6"><a href="add-datauts.php" class="btn btn-sm btn-primary float-right">Tambah_Data</a></div>
+							</div>
+							<TABLE class="table table-bordered table-sm">
+								<thead>
+										<tr>
+											<TH class="text-center">Id</TH>
+											<TH class="text-center">No Registrasi</TH>
+											<TH class="text-center">Nama Lengkap</TH>
+											<TH class="text-center">Jurusan</TH>
+											<TH class="text-center">Jenis Kelamin</TH>
+											<TH class="text-center">Alamat</TH>
+											<TH class="text-center">No Telepon</TH>
+											<TH class="text-center">E-Mail</TH>
+											<th class="text-center">Aksi</th>
+										</tr>
+								</thead>
+								<tbody>	
+									<?php $no = 1; ?>
+									<?php foreach ($result as $row): ?>
+									<tr>
+										<td><?= $no++; ?></td>
+										<td><?= $row['no_registrasi'];?></td>
+										<td><?= $row['nama_lengkap'];?></td>
+										<td><?= $row['jurusan'];?></td>
+										<td><?= $row['jenis_kelamin'];?></td>
+										<td><?= $row['alamat'];?></td>
+										<td><?= $row['no_telpon'];?></td>
+										<td><?= $row['e_mail'];?></td>
+										<td>
+											<a href="" class="btn btn-info btn-sm">Detail</a> |
+											<a href="edit.php?id=<?= $row['id'] ?>" class="btn btn-warning btn-sm">Edit</a> |
+											<a href="Hapus.php?id=<?= $row['id'] ?>"  class="btn btn-danger btn-sm">Hapus</a>
+										</td>	
+									</tr>
+									<?php endforeach ?>
+								</tbody>	
+							</TABLE>
+				</div>
+			</div>
+	</div>
+	<script src="js/jquery.min.js"></script>
+	<script src="js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
