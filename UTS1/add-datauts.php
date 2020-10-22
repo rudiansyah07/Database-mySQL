@@ -17,7 +17,7 @@ $result =mysqli_query ($conn, "SELECT*FROM data");
 				<div class= "col-12">
 					<h4>FORM PENDAFTARAN</h4>
 					<hr>
-					<form action="act-pendaftaran" method="POST">
+					<form action="act-pendaftaran.php" method="POST">
 						<div class="form-group">
 							<label for="reg">No Registrasi</label>
 							<input type="text" id="reg" class="form-control" name="no_registrasi">
@@ -58,7 +58,7 @@ $result =mysqli_query ($conn, "SELECT*FROM data");
 						</div>
 						<div class="form-group float-right">
 							<a href="uts-data.php" class="btn btn-secondary btn-md">Kembali</a>
-							<a href="" class="btn btn-primary btn-md">Simpan</a>
+							<a type="submit" name="submit" href="" class="btn btn-primary btn-md">Simpan</a>
 						</div>
 								
 									
